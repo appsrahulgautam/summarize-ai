@@ -13,11 +13,21 @@ const Menu = () => {
   const [open, setOpen] = useState(false);
   const href_pricing = "/pricing";
   const href_account = "/account";
+  const href_upload = "/upload";
 
   return (
     <nav className="relative">
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-4 items-center">
+        <Link
+          href={href_upload}
+          className={cn(
+            "hover:text-rose-500",
+            pathname == href_upload && "text-rose-700"
+          )}
+        >
+          Upload PDF
+        </Link>
         <Link
           href={href_pricing}
           className={cn(
@@ -36,6 +46,7 @@ const Menu = () => {
         >
           Account
         </Link>
+
         <AuthButton />
       </div>
 
@@ -54,6 +65,15 @@ const Menu = () => {
           className="flex flex-col justify-center items-center absolute right-0 mt-2 w-60 p-4  rounded-lg border
         shadow-lg md:hidden bg-rose-100"
         >
+          <Link
+            href={href_upload}
+            className={cn(
+              "hover:text-rose-500",
+              pathname == href_upload && "text-rose-700"
+            )}
+          >
+            Upload PDF
+          </Link>
           <Link
             href={href_pricing}
             className="block px-4 py-4 hover:bg-muted"

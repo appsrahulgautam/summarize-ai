@@ -5,6 +5,7 @@ import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import SessionWrapper from "./sessionwrapper";
 import { Suspense } from "react";
+import { Toaster } from "@/components/ui/sonner";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -31,6 +32,7 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
+            <Toaster />
           </body>
         </html>
       </SessionWrapper>
