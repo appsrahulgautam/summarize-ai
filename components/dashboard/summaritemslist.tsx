@@ -1,5 +1,5 @@
 "use client";
-import { PdfSummary } from "@/lib/db_cruds";
+import { deletePdfSummaryById, PdfSummary } from "@/lib/db_cruds";
 import { humanReadableTimeAgoConverter } from "@/lib/utils";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
@@ -7,12 +7,25 @@ import { Book, Trash2 } from "lucide-react";
 import AlertDialogBox from "../common/alertdialog";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const Summaritemslist = ({ arraydata }: { arraydata: PdfSummary[] }) => {
+  const router = useRouter();
+  const [filetodelete, setFiletodelete] = useState<PdfSummary>();
   const [openAlertDialogBox, setOpenAlertDialogBox] = useState(false);
 
-  const onConfirmAction = () => {
+  const onConfirmAction = async () => {
     toast("Deleting...");
+    const { success } = await deletePdfSummaryById(
+      filetodelete?.id as string,
+      filetodelete?.user_id as string
+    );
+    if (success == true) {
+      toast.success("Summary deleted successfully");
+      router.refresh();
+    } else {
+      toast.error("Retry deleting summary");
+    }
   };
 
   return (
@@ -44,7 +57,10 @@ const Summaritemslist = ({ arraydata }: { arraydata: PdfSummary[] }) => {
                 {singlesummary.status}
               </Badge>
               <Button
-                onClick={() => setOpenAlertDialogBox(true)}
+                onClick={() => {
+                  setFiletodelete(singlesummary);
+                  setOpenAlertDialogBox(true);
+                }}
                 variant={"destructive"}
                 className="rounded-full"
               >
