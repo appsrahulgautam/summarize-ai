@@ -175,3 +175,36 @@ export async function getPdfSummariesByUserId(
     };
   }
 }
+
+
+
+export async function deletePdfSummaryById(summaryId: string, userId: string) {
+  try {
+    const sql = await getDbConnection();
+
+    const result = await sql`
+      DELETE FROM pdf_summaries
+      WHERE id = ${summaryId}
+      AND user_id = ${userId}
+      RETURNING id;
+    `;
+
+    if (result.length === 0) {
+      return {
+        success: false,
+        error: "Summary not found or not authorized",
+      };
+    }
+
+    return {
+      success: true,
+      deletedId: result[0].id,
+    };
+  } catch (error) {
+    console.error("Delete summary error:", error);
+    return {
+      success: false,
+      error: "Failed to delete summary",
+    };
+  }
+}
