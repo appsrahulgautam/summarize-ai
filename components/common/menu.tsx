@@ -14,6 +14,7 @@ const Menu = () => {
   const href_pricing = "/pricing";
   const href_account = "/account";
   const href_upload = "/upload";
+  const href_dashboard = "/dashboard";
 
   return (
     <nav className="relative">
@@ -29,14 +30,15 @@ const Menu = () => {
           Upload PDF
         </Link>
         <Link
-          href={href_pricing}
+          href={href_dashboard}
           className={cn(
             "hover:text-rose-500",
-            pathname == href_pricing && "text-rose-700"
+            pathname == href_dashboard && "text-rose-700"
           )}
         >
-          Pricing
+          Dashboard
         </Link>
+
         <Link
           href={href_account}
           className={cn(
@@ -46,7 +48,15 @@ const Menu = () => {
         >
           Account
         </Link>
-
+        <Link
+          href={href_pricing}
+          className={cn(
+            "hover:text-rose-500",
+            pathname == href_pricing && "text-rose-700"
+          )}
+        >
+          Pricing
+        </Link>
         <AuthButton />
       </div>
 
@@ -75,14 +85,24 @@ const Menu = () => {
             Upload PDF
           </Link>
           <Link
+            href={href_dashboard}
+            className={cn(
+              "hover:text-rose-500",
+              pathname == href_dashboard && "text-rose-700"
+            )}
+          >
+            Dashboard
+          </Link>
+
+          <Link href={href_account} className="hover:text-rose-500">
+            Account
+          </Link>
+          <Link
             href={href_pricing}
             className="block px-4 py-4 hover:bg-muted"
             onClick={() => setOpen(false)}
           >
             Pricing
-          </Link>
-          <Link href={href_account} className="hover:text-rose-500">
-            Account
           </Link>
           <AuthButton />
         </div>

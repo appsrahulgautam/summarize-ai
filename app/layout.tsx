@@ -31,8 +31,17 @@ export default function RootLayout({
           <body className={`${outfit.variable} font-outfit  antialiased`}>
             <Header />
             {children}
+            <Toaster
+              toastOptions={{
+                classNames: {
+                  toast: "!bg-gray-500 !text-white !border-none",
+                  description: "!text-white",
+                  title: "!text-white text-sm",
+                },
+              }}
+            />
+
             <Footer />
-            <Toaster />
           </body>
         </html>
       </SessionWrapper>

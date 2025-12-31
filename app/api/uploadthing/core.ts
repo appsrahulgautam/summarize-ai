@@ -1,4 +1,4 @@
-import { getUserDetails } from "@/lib/crud";
+import { getUserDetails } from "@/lib/db_cruds";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 

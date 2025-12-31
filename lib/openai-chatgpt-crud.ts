@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-const PROMPT = `
+export const PROMPT = `
 Summarize the following text into a clear, concise, and easy-to-read format.
 Preserve meaning, key facts, and structure.
 Use simple language, short paragraphs, and bullet points where helpful.
@@ -12,6 +12,7 @@ export async function generate_OpenAI_ChatGPT_summary(
   fullTextDataOfPDF: string
 ) {
   try {
+    return TESTINGTEXT;
     const completion = await client.chat.completions.create({
       model: "gpt-4o",
       messages: [
@@ -37,6 +38,7 @@ export async function generate_OpenAI_ChatGPT_summary(
     throw new Error("Something went wrong in ChatGPT execution");
   }
 }
+
 export const TESTINGTEXT = `Water is essential for life and covers 71% of Earth's surface. Here's why it's important:
 
 - **Basic Composition**: Water is made of two hydrogen atoms and one oxygen atom (H₂O).

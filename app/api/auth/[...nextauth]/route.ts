@@ -1,3 +1,4 @@
+import { createUserIfNotExists } from "@/lib/db_cruds";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -11,7 +12,19 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/login", // Tells NextAuth to use this route instead of the default
   },
+  ///
+  //
+  //todo these callback methods runs everytims it successfully logins
+  //todo so to update user db or create user db row, heres the place 
+  //
   callbacks: {
+
+    async signIn({ user }) {
+      if (!user.email) return false;
+      await createUserIfNotExists(user.email, user.name ?? undefined);
+      return true; // allow sign-in
+    },
+
     // Add types to jwt({ token, user })
     async jwt({ token, user }) {
       if (user) {
