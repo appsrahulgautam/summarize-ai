@@ -1,3 +1,4 @@
+"use client";
 import { Gem, Trophy } from "lucide-react";
 import React from "react";
 import PricingSectionItem from "./pricingsection_item";

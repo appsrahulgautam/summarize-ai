@@ -171,12 +171,10 @@ export async function getPdfSummariesByUserId(
     return {
       success: false,
       error: "Error while fetching summaries",
-      data: null
+      data: null,
     };
   }
 }
-
-
 
 export async function deletePdfSummaryById(summaryId: string, userId: string) {
   try {
@@ -205,6 +203,37 @@ export async function deletePdfSummaryById(summaryId: string, userId: string) {
     return {
       success: false,
       error: "Failed to delete summary",
+    };
+  }
+}
+
+export async function getPdfSummaryByIdAndUser(id: string, userId: string) {
+  try {
+    const sql = await getDbConnection();
+    const result = await sql`
+    SELECT *
+    FROM pdf_summaries
+    WHERE id = ${id}
+      AND user_id = ${userId}
+    LIMIT 1;
+  `;
+
+    if (result.length > 0) {
+      const pdfsummary = result[0] as PdfSummary;
+      return {
+        successPdf: true,
+        pdfsummary: pdfsummary,
+      };
+    } else {
+      return {
+        successPdf: true,
+        pdfsummary: null,
+      };
+    }
+  } catch (error) {
+    return {
+      successPdf: false,
+      pdfsummary: null,
     };
   }
 }

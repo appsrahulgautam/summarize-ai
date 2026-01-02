@@ -1,6 +1,7 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { Check, LucideIcon } from "lucide-react";
-import { Button } from "../ui/button";
+import PayButton from "../stripepaymentbuttons/paybutton";
 
 interface ItemsProp {
   title: string;
@@ -10,7 +11,7 @@ interface ItemsProp {
   summary: string[];
 }
 
-const PricingSectionItem = ({
+const PricingSectionItem = async ({
   title,
   desc,
   icon: Icon,
@@ -40,9 +41,8 @@ const PricingSectionItem = ({
           <Check /> {item}
         </p>
       ))}
-      <Button variant={"default"} className="w-full">
-        Buy
-      </Button>
+      {title == "Basic" && <PayButton plan="basic" />}
+      {title == "Pro" && <PayButton plan="pro" />}
     </div>
   );
 };
