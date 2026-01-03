@@ -4,6 +4,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { getDbConnection } from "./db";
 
+
 export async function getUserDetails() {
   const session = await getServerSession(authOptions);
 
@@ -27,19 +28,6 @@ export async function getUserDetails() {
     success: true,
     userId: user.id, // ✅ UUID
   };
-}
-
-export async function checkUserExistsById(userId: string) {
-  const sql = await getDbConnection();
-
-  const [user] = await sql`
-    SELECT id
-    FROM users
-    WHERE id = ${userId}
-    LIMIT 1;
-  `;
-
-  return !!user;
 }
 
 export async function createUserIfNotExists(
@@ -72,4 +60,47 @@ export async function createUserIfNotExists(
     console.error("Error while creating user", error);
     throw error;
   }
+}
+
+export async function getUserSubscription(userId: string) {
+  const sql = await getDbConnection();
+
+  const [row] = await sql`
+    SELECT
+      p.plan,
+      p.subscription_status,
+      p.period_start,
+      p.period_end,
+      u.status as user_status
+    FROM payments p
+    JOIN users u ON u.id = p.user_id
+    WHERE p.user_id = ${userId}
+    ORDER BY p.created_at DESC
+    LIMIT 1;
+  `;
+
+  return row ?? null;
+}
+
+export async function cancelSubscription(userId: string) {
+  const sql = await getDbConnection();
+
+  await sql`
+    UPDATE payments
+    SET
+      subscription_status = 'cancelled',
+      updated_at = now()
+    WHERE user_id = ${userId};
+  `;
+
+  await sql`
+    UPDATE users
+    SET
+      status = 'inactive',
+      plan = null,
+      updated_at = now()
+    WHERE id = ${userId};
+  `;
+
+  return { success: true };
 }

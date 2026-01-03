@@ -2,17 +2,20 @@ import OpenAI from "openai";
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export const PROMPT = `
-Summarize the following text into a clear, concise, and easy-to-read format.
-Preserve meaning, key facts, and structure.
-Use simple language, short paragraphs, and bullet points where helpful.
-Do not add new information.
+Summarize the provided text following these formatting rules:
+1. Use a clear Heading for the main topic.
+2. Use Subheadings (##) for different sections (e.g., Properties, The Water Cycle).
+3. Use Bold text for key terms.
+4. Use Bullet points for lists to increase white space.
+5. Keep paragraphs short (2-3 sentences max).
+6. Output in clean Markdown format.
 `;
 
 export async function generate_OpenAI_ChatGPT_summary(
   fullTextDataOfPDF: string
 ) {
   try {
-    return TESTINGTEXT;
+    // return TESTINGTEXT;
     const completion = await client.chat.completions.create({
       model: "gpt-4o",
       messages: [
@@ -30,7 +33,9 @@ export async function generate_OpenAI_ChatGPT_summary(
       max_tokens: 1500,
     });
 
-    console.log(completion.choices[0].message.content);
+    const data = completion.choices[0].message.content;
+    console.log(data);
+    return data;
   } catch (error: any) {
     if (error?.status === 429) {
       throw new Error("RATE LIMIT EXCEEDED IN CHATGPT");

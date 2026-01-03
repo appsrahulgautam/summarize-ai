@@ -1,6 +1,6 @@
-import { getUserDetails } from "@/lib/db_cruds";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
+import { getUserDetails } from '@/lib/user_related_db_cruds';
 
 const f = createUploadthing();
 
@@ -22,7 +22,7 @@ export const OurFileRouter = {
     // Set permissions and file types for this FileRoute
     .middleware(async ({ req }) => {
       // This code runs on your server before upload
-      const { success, error, message, userId } = await getUserDetails();
+      const { success, userId } = await getUserDetails();
 
       // If you throw, the user will not be able to upload
       if (!success) throw new UploadThingError("You need to log in first");

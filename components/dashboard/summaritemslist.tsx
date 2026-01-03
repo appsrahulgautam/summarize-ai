@@ -8,7 +8,6 @@ import AlertDialogBox from "../common/alertdialog";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import EmptyState from "../common/emptystate";
 
 const Summaritemslist = ({ arraydata }: { arraydata: PdfSummary[] }) => {
@@ -38,19 +37,17 @@ const Summaritemslist = ({ arraydata }: { arraydata: PdfSummary[] }) => {
       )}
       {/* //TODO IF SUMMARIES FOUND */}
 
-      {arraydata.length > 0 &&
-        arraydata.map((singlesummary) => (
-          <div
-            onClick={(e) => {
-              if ((e.target as HTMLElement).closest("button")) return;
-              router.push("/summaries/" + singlesummary.id);
-            }}
-            key={singlesummary.id}
-            className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
-          >
+      {arraydata.length > 0 && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
+          {arraydata.map((singlesummary) => (
             <div
-              className="sm:m-4 p-4 sm:py-8 sm:p-4 border border-rose-950 
-            rounded-2xl bg-rose-100 animation_popup_style"
+              key={singlesummary.id}
+              onClick={(e) => {
+                if ((e.target as HTMLElement).closest("button")) return;
+                router.push("/summaries/" + singlesummary.id);
+              }}
+              className="sm:m-4 p-4 sm:py-8 border border-rose-950 
+                     rounded-2xl bg-rose-100 animation_popup_style cursor-pointer"
             >
               <div className="flex flex-row items-center gap-4">
                 <Book className="text-primary" size={40} />
@@ -66,7 +63,6 @@ const Summaritemslist = ({ arraydata }: { arraydata: PdfSummary[] }) => {
               <p className="leading-relaxed line-clamp-5 pt-3">
                 {singlesummary.summary_text}
               </p>
-
               <div className="flex flex-row justify-between items-center mt-6">
                 <Badge variant={"default"} className="mt-4">
                   {singlesummary.status}
@@ -94,8 +90,9 @@ const Summaritemslist = ({ arraydata }: { arraydata: PdfSummary[] }) => {
                 />
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      )}
     </div>
   );
 };

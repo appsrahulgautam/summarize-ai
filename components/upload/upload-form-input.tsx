@@ -10,7 +10,10 @@ const UploadFormInput = ({ handleSubmit }: UploadformInputProp) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-10 sm:px-30 pt-10">
+        <div
+          className="flex flex-col sm:flex-row justify-center sm:justify-between
+         items-center px-10 sm:px-30 pt-10 mb-20"
+        >
           <div className="flex justify-center w-full sm:w-auto">
             <input
               id="file"
@@ -32,7 +35,8 @@ const UploadFormInput = ({ handleSubmit }: UploadformInputProp) => {
             type="submit"
             variant={"default"}
             className="h-10 sm:h-12 bg-linear-to-r text-sm sm:text-xl shadow-2xl 
-         from-rose-500 to-rose-950 animation_popup_style rounded-full hover:to-rose-500 hover:from-rose-950"
+         from-rose-500 to-rose-950 animation_popup_style rounded-full
+          hover:to-rose-500 hover:from-rose-950"
           >
             <span className=" flex flex-row px-6 items-center gap-4">
               Upload file <ArrowRight />

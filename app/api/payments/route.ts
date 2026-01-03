@@ -23,6 +23,12 @@ export const POST = async (req: NextRequest) => {
   try {
     event = stripe.webhooks.constructEvent(payload, sig!, endpointSecret);
     switch (event.type) {
+      //
+      //
+      // todo #1 EVENT SESSION COMPLETED
+      //
+      //
+      //
       case "checkout.session.completed":
         console.log("checkout.session.completed");
         const sessionId = event.data.object.id as string;
@@ -35,12 +41,25 @@ export const POST = async (req: NextRequest) => {
         await handleCheckoutSessionCompleted({ session, stripe });
 
         break;
+
+      //
+      //
+      // todo #2 EVENT subscription deleted
+      //
+      //
+      //
       case "customer.subscription.deleted":
         console.log("customer.subscription.deleted");
         const subscription = event.data.object as Stripe.Subscription;
         await handleSubscriptionDeleted(subscription.id);
         break;
 
+      //
+      //
+      // todo #3 EVENT subscription updated
+      //
+      //
+      //
       case "customer.subscription.updated": {
         console.log("customer.subscription.updated");
 
@@ -55,7 +74,12 @@ export const POST = async (req: NextRequest) => {
 
         break;
       }
-
+      //
+      //
+      // todo #4 EVENT invoice payment_succeeded
+      //
+      //
+      //
       case "invoice.payment_succeeded": {
         console.log("invoice.payment_succeeded received");
 
@@ -106,16 +130,4 @@ export const POST = async (req: NextRequest) => {
       { status: 400 }
     );
   }
-
-  return NextResponse.json({
-    status: "success",
-    message: "Hello",
-  });
-};
-
-export const GET = async () => {
-  return NextResponse.json({
-    status: "Get HELLOW",
-    message: "Hello get",
-  });
 };

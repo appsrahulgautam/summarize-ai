@@ -30,7 +30,7 @@ export default async function generatePDFSummary_Gemini_AI(
       },
     });
     console.log("Gemini response -> " + response.text);
-    return response;
+    return response.text;
   } catch (error: any) {
     throw new Error("Something went wrong in Gemini execution");
   }

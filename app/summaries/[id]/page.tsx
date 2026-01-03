@@ -9,9 +9,10 @@ import {
   SparkleIcon,
 } from "lucide-react";
 import Link from "next/link";
-import { getPdfSummaryByIdAndUser, getUserDetails } from "@/lib/db_cruds";
+import { getPdfSummaryByIdAndUser } from "@/lib/db_cruds";
 import EmptyState from "@/components/common/emptystate";
 import ReactMarkdown from "react-markdown";
+import { getUserDetails } from "@/lib/user_related_db_cruds";
 
 // Define the params type
 interface PageProps {
@@ -120,7 +121,47 @@ const SummaryDetails = async ({ params }: PageProps) => {
             className="flex flex-row mx-4 leading-relaxed tracking-wide my-10
           text-sm sm:text-lg"
           >
-            <ReactMarkdown>{pdfsummary.summary_text}</ReactMarkdown>
+            <div className="flex justify-center p-4 md:p-10 bg-gray-100 w-full">
+              <div className="max-w-2xl w-full bg-white p-8 md:p-12 rounded-xl shadow-lg">
+                <ReactMarkdown
+                  components={{
+                    // Style the TITLE (h1) specifically
+                    h1: ({ node, ...props }) => (
+                      <h1
+                        className="text-xl font-bold text-gray-800 mb-10 mt-0 leading-tight border-b pb-4"
+                        {...props}
+                      />
+                    ),
+                    // Style the SUBHEADERS (h2/h3)
+                    h2: ({ node, ...props }) => (
+                      <h2
+                        className="text-lg font-semibold text-gray-700 mt-8 mb-4"
+                        {...props}
+                      />
+                    ),
+                    // Style the PARAGRAPHS (p)
+                    p: ({ node, ...props }) => (
+                      <p
+                        className="text-base text-gray-600 mb-6 leading-relaxed"
+                        {...props}
+                      />
+                    ),
+                    // Style the LISTS
+                    ul: ({ node, ...props }) => (
+                      <ul
+                        className="list-disc ml-5 mb-6 space-y-2 text-gray-600"
+                        {...props}
+                      />
+                    ),
+                    li: ({ node, ...props }) => (
+                      <li className="pl-1" {...props} />
+                    ),
+                  }}
+                >
+                  {pdfsummary.summary_text}
+                </ReactMarkdown>
+              </div>
+            </div>
           </p>
         </div>
       )}

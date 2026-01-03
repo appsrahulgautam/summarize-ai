@@ -34,41 +34,41 @@ export async function generatePDFSummary(
 
     // * lets pass fulltext to chatgpt and ask to do summary of it
     // * if it throws error we will do summary from gemini in catch block
-    try {
-      const summaryByChatGPT = //TESTINGTEXT;
-        await generate_OpenAI_ChatGPT_summary(fullTextDataOfPDF);
+    // try {
+    //   const summaryByChatGPT = //TESTINGTEXT;
+    //     await generate_OpenAI_ChatGPT_summary(fullTextDataOfPDF);
 
-      console.log("Summary by " + summaryByChatGPT);
+    //   console.log("Summary by " + summaryByChatGPT);
+    //   return {
+    //     success: true,
+    //     error: "",
+    //     summary: summaryByChatGPT,
+    //   };
+    // } catch (error: any) {
+    //   console.log("Error by ChatGPT -> " + error);
+
+    //  * lets try Gemini AI summary here
+    try {
+      const summaryByGemini = await generatePDFSummary_Gemini_AI(
+        fullTextDataOfPDF
+      );
+      console.log("Response by Gemini ->> " + summaryByGemini);
       return {
         success: true,
         error: "",
-        summary: summaryByChatGPT,
+        summary: summaryByGemini,
       };
-    } catch (error: any) {
-      console.log("Error by ChatGPT -> " + error);
-
-      //  * lets try Gemini AI summary here
-      try {
-        const summaryByGemini = await generatePDFSummary_Gemini_AI(
-          fullTextDataOfPDF
-        );
-        console.log("Response by Gemini ->> " + summaryByGemini);
-        return {
-          success: true,
-          error: "",
-          summary: summaryByGemini,
-        };
-      } catch (error1) {
-        console.log(error1);
-        // *
-        // * if gemini also has error then say big no to user
-        // *
-        return {
-          success: false,
-          error: "No AI provider was able to provide a summary for this PDF.",
-        };
-      }
+    } catch (error1) {
+      console.log(error1);
+      // *
+      // * if gemini also has error then say big no to user
+      // *
+      return {
+        success: false,
+        error: "No AI provider was able to provide a summary for this PDF.",
+      };
     }
+    // }
   } catch (error: any) {
     if (error instanceof Error) {
       console.error(error.message);

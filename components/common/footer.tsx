@@ -11,6 +11,15 @@ const Footer = () => {
      from-rose-100 via-rose-50 to-rose-100"
       >
         <Logo />
+
+        <div className="flex flex-col">
+          <p className="text-lg">
+            Transform PDFs into concise summaries with our AI
+          </p>
+          <p className="text-lg font-bold mt-2">
+            Made with ❤️ love by Rahul Gautam
+          </p>
+        </div>
       </div>
       <RedSpace />
     </div>
