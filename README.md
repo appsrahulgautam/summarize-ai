@@ -17,3 +17,25 @@ Next.js • OpenAI • Gemini • LangChain • Stripe
 A full-stack AI SaaS application that allows users to upload PDF documents and instantly receive clean, easy-to-read summaries powered by multiple AI providers with automatic fallback.
 
 Built for real-world usage, scalability, and monetization.
+
+
+
+User
+  │
+  ▼
+Upload PDF
+  │
+  ▼
+UploadThing (File URL)
+  │
+  ▼
+LangChain (Text Extraction)
+  │
+  ▼
+OpenAI ChatGPT
+  │   └─❌ fails?
+  ▼
+Gemini AI (Fallback)
+  │
+  ▼
+Final Summary → User
