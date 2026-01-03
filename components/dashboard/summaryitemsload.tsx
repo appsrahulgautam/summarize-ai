@@ -1,5 +1,6 @@
-import { getPdfSummariesByUserId, getUserDetails } from "@/lib/db_cruds";
+import { getPdfSummariesByUserId } from "@/lib/db_cruds";
 import Summaritemslist from "./summaritemslist";
+import { getUserDetails } from "@/lib/user_related_db_cruds";
 
 const SummaryItemsServer = async () => {
   const { success, userId } = await getUserDetails();

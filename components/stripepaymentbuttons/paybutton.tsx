@@ -1,6 +1,6 @@
-import { getUserDetails } from "@/lib/db_cruds";
 import { signIn } from "next-auth/react";
 import { Button } from "../ui/button";
+import { getUserDetails } from "@/lib/user_related_db_cruds";
 
 export default function PayButton({ plan }: { plan: "basic" | "pro" }) {
   //

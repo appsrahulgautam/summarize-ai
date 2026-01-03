@@ -1,4 +1,4 @@
-import { createUserIfNotExists } from "@/lib/db_cruds";
+import { createUserIfNotExists } from "@/lib/user_related_db_cruds";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
