@@ -7,7 +7,7 @@ const f = createUploadthing();
 const auth = (req: Request) => ({ id: "fakeId" }); // Fake auth function
 
 // FileRouter for your app, can contain multiple FileRoutes
-export const ourFileRouter = {
+export const OurFileRouter = {
   // Define as many FileRoutes as you like, each with a unique routeSlug
   pdfUploader: f({
     pdf: {
@@ -41,4 +41,4 @@ export const ourFileRouter = {
     }),
 } satisfies FileRouter;
 
-export type OurFileRouter = typeof ourFileRouter;
+export type OurFileRouter = typeof OurFileRouter;

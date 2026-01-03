@@ -1,16 +1,18 @@
-export default function SuccessPage({
+export default async function SuccessPage({
   searchParams,
 }: {
-  searchParams: { session_id?: string };
+  searchParams: Promise<{ session_id?: string }>;
 }) {
+  const searchParamss = await searchParams;
+
   return (
-    <div style={{ padding: "40px", textAlign: "center" }}>
-      <h1>✅ Payment Successful</h1>
+    <div className="mt-20" style={{ padding: "40px", textAlign: "center" }}>
+      <h6>✅ Payment Successful</h6>
       <p>Thank you for your payment.</p>
 
-      {searchParams.session_id && (
+      {searchParamss.session_id && (
         <p>
-          <strong>Session ID:</strong> {searchParams.session_id}
+          <strong>Session ID:</strong> {searchParamss.session_id}
         </p>
       )}
 

@@ -1,69 +1,7 @@
 "use server";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { getServerSession } from "next-auth";
 import { getDbConnection } from "./db";
 import { getCleanFileName } from "./utils";
-
-export async function getUserDetails() {
-  const session = await getServerSession(authOptions);
-
-  if (!session) {
-    return {
-      success: false,
-      error: "Not logged in",
-      message: "You need to re-login.",
-    };
-  }
-  if (!session.user) {
-    return {
-      success: false,
-      error: "Not logged in",
-      message: "You need to re-login.",
-    };
-  }
-
-  if (!session.user.id) {
-    return {
-      success: false,
-      error: "Not logged in",
-      message: "You need to re-login.",
-    };
-  }
-
-  const userId = session.user.id;
-  return {
-    success: true,
-    error: "",
-    message: "Success",
-    userId: userId,
-  };
-}
-
-export async function createUserIfNotExists(email: string, fullName?: string) {
-  try {
-    console.log("name and email " + fullName + "  " + email);
-    const sql = await getDbConnection();
-
-    const result = await sql`
-    INSERT INTO users (email, full_name)
-    VALUES (${email}, ${fullName})
-    ON CONFLICT (email) DO NOTHING
-    RETURNING *;
-  `;
-
-    // If user already exists, fetch it
-    if (result.length === 0) {
-      const [user] = await sql`
-      SELECT * FROM users WHERE email = ${email};
-    `;
-      return user;
-    }
-
-    return result[0];
-  } catch (error: any) {
-    console.log("Error while creating user");
-  }
-}
+import { getUserDetails } from "./user_related_db_cruds";
 
 export async function saveSummaryToDatabase(
   uploadedFileUrl: string,
@@ -73,7 +11,7 @@ export async function saveSummaryToDatabase(
   try {
     console.log("inside saveSummaryToDatabase");
 
-    const { success, error, message, userId } = await getUserDetails();
+    const { success, userId } = await getUserDetails();
     if (success != true || !userId) {
       return {
         successSavedToDb: false,

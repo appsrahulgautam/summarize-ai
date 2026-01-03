@@ -10,12 +10,13 @@ import { NextResponse } from "next/server";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 const PRICE_MAP: Record<string, string> = {
-  basic: "price_1SlDwoSdXOKtC7hPvUMiVasS", //price id of that plan <---
-  pro: "price_1SlDxVSdXOKtC7hPLxms5pcN",
+  basic: "price_1SlXDzSGiOVnd9LiBWx8yBat", //price id of that plan <---
+  pro: "price_1SlXEFSGiOVnd9Libh2IaAtc",
 };
 
 export async function POST(req: Request) {
-  const { plan } = await req.json();
+  const { plan, userId } = await req.json();
+  console.log("checkout params -> " + plan + "  "+ userId);
 
   const priceId = PRICE_MAP[plan];
   if (!priceId) {
@@ -30,7 +31,10 @@ export async function POST(req: Request) {
     //todo you dont trust these to confirm. Trust only webhook events
     success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/cancel`,
-    metadata: { plan },
+    metadata: {
+      plan,
+      userId, // ← YOU MUST PASS THIS FROM FRONTEND
+    },
   });
 
   return NextResponse.json({ url: session.url });

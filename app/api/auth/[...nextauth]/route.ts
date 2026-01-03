@@ -15,13 +15,16 @@ export const authOptions: NextAuthOptions = {
   ///
   //
   //todo these callback methods runs everytims it successfully logins
-  //todo so to update user db or create user db row, heres the place 
+  //todo so to update user db or create user db row, heres the place
   //
   callbacks: {
-
     async signIn({ user }) {
       if (!user.email) return false;
-      await createUserIfNotExists(user.email, user.name ?? undefined);
+      await createUserIfNotExists(
+        user.email,
+        user.id, // ✅ auth_user_id
+        user.name ?? undefined
+      );
       return true; // allow sign-in
     },
 

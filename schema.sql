@@ -4,12 +4,13 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- Users table
 CREATE TABLE users (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    auth_user_id VARCHAR(255) UNIQUE,
     email VARCHAR(255) UNIQUE NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     full_name VARCHAR(255),
     customer_id VARCHAR(255) UNIQUE,
-    price_id VARCHAR(255),
+    plan VARCHAR(255),
     status VARCHAR(50) DEFAULT 'inactive'
 );
 
@@ -26,17 +27,25 @@ CREATE TABLE pdf_summaries (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Payments table
+
 CREATE TABLE payments (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    amount INTEGER NOT NULL,
-    status VARCHAR(50) NOT NULL,
-    stripe_payment_id VARCHAR(255) UNIQUE NOT NULL,
-    price_id VARCHAR(255) NOT NULL,
-    user_email VARCHAR(255) NOT NULL REFERENCES users(email),
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    stripe_customer_id VARCHAR(255) NOT NULL,
+    stripe_subscription_id VARCHAR(255),
+    stripe_payment_intent_id VARCHAR(255),
+    stripe_invoice_id VARCHAR(255),
+    plan VARCHAR(50) NOT NULL,
+    amount INTEGER NOT NULL,           -- stored in smallest unit (paise / cents)
+    currency VARCHAR(10) NOT NULL,     -- INR, USD, etc.
+    payment_status VARCHAR(50) NOT NULL,   -- succeeded | failed | pending
+    subscription_status VARCHAR(50),       -- active | canceled | past_due
+    period_start TIMESTAMP WITH TIME ZONE,
+    period_end TIMESTAMP WITH TIME ZONE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+
 
 
 -- todo whats happening is that we are saying before updating any table for any row, 
@@ -63,7 +72,7 @@ CREATE TRIGGER update_pdf_summaries_updated_at
     FOR EACH ROW
     EXECUTE FUNCTION update_updated_at_column();
 
-CREATE TRIGGER update_payments_updated_at
+CREATE TRIGGER update_pdf_summaries_updated_at
     BEFORE UPDATE ON payments
     FOR EACH ROW
-    EXECUTE FUNCTION update_updated_at_column(); 
+    EXECUTE FUNCTION update_updated_at_column();
