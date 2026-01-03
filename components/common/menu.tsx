@@ -6,7 +6,6 @@ import { Menu as MenuIcon, X } from "lucide-react";
 import AuthButton from "./authbutton";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import HeaderSubscriptionStatus from "./headersubscriptionstatus";
 
 const Menu = () => {
   const pathname = usePathname();
