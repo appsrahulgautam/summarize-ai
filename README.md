@@ -25,6 +25,51 @@ clean, easy-to-read summaries powered by OpenAI ChatGPT and Google Gemini AI.
 
 Designed with real-world scalability, reliability, and monetization in mind.
 
+This repository showcases:
+
+Modern Next.js App Router architecture
+AI pipeline orchestration with LangChain
+Secure file handling with UploadThing
+Subscription billing using Stripe
+Type-safe backend with PostgreSQL + Drizzle ORM
+Enterprise-grade validation with Zod
+
+
+🎯 Key Highlights (Why Clients Love This)
+
+✅ AI Provider Fallback System (OpenAI → Gemini)
+✅ Subscription-based SaaS architecture
+✅ Production-ready authentication & billing
+✅ Scalable, modular codebase
+✅ Clean UI with Tailwind CSS
+✅ Type-safe from frontend to database
+
+
+🏗️ Tech Stack
+Frontend
+
+⚡ Next.js (App Router)
+⚛️ React.js
+🎨 Tailwind CSS
+🟦 TypeScript
+
+Backend & Infrastructure
+🧠 LangChain SDK
+📦 UploadThing SDK
+🗄️ PostgreSQL
+🔄 Drizzle ORM
+🛡️ Zod Validation
+
+AI Providers
+🤖 OpenAI (ChatGPT)
+🌐 Google Gemini API
+
+Payments & Subscriptions
+💳 Stripe Payments
+🔁 Stripe Subscriptions
+🧾 Webhook-driven subscription state management
+
+
 </div>
 📸 Product Preview
 <div align="center">
@@ -36,22 +81,3 @@ Designed with real-world scalability, reliability, and monetization in mind.
 <img src="./public/screenshots/Screenshot (34).png" width="85%" alt="Stripe payment" /> <br/><br/>
 <img src="./public/screenshots/Screenshot (33).png" width="85%" alt="AI Summary Output" /> </div>
 
-</div>
-👨‍💻 Author
-<div align="center">
-
-Rahul Gautam
-Full-Stack & AI SaaS Developer
-
-Specialized in Next.js, AI integrations, and subscription-based platforms
-
-</div>
-🤝 Let’s Build Something Powerful
-<div align="center">
-
-Looking to build an AI SaaS, integrate OpenAI / Gemini,
-or launch a subscription platform?
-
-📩 Let’s talk.
-
-</div>
