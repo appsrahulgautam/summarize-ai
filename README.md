@@ -31,19 +31,10 @@ Designed with real-world scalability, reliability, and monetization in mind.
 
 <img src="./public/screenshots/Screenshot (29).png" width="85%" alt="Dashboard Preview" /> <br/><br/>
 <img src="./public/screenshots/Screenshot (30).png" width="85%" alt="Upload PDF" /> <br/><br/>
-<img src="./public/screenshots/Screenshot (31).png" width="85%" alt="Subscription status /> <br/><br/>
-<img src="./public/screenshots/Screenshot (32).png" width="85%" alt="Pricing" /> <br/><br/>
+<img src="./public/screenshots/Screenshot (31).png" width="85%" alt="Subscription status" /> <br/><br/>
+<img src="./public/screenshots/Screenshot (31).png"  width="85%" alt="Pricing" /> <br/><br/>
 <img src="./public/screenshots/Screenshot (34).png" width="85%" alt="Stripe payment" /> <br/><br/>
 <img src="./public/screenshots/Screenshot (33).png" width="85%" alt="AI Summary Output" /> </div>
-
-🎥 Demo Video
-
-<div align="center">
-
-🎬 Short demo video showing the full flow (upload → summary)
-
-▶ Watch Demo Video
-<video src="./public/videos/summarizeai_rahulgautam.mp4" width="85%" alt="AI Summary Output"/>
 
 </div>
 👨‍💻 Author
