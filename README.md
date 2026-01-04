@@ -18,7 +18,7 @@ Transform Long PDFs into Clear, Actionable Summaries using AI
 
 </div>
 🌈 Project Overview
-<div align="center">
+<div align="start">
 
 A full-stack AI SaaS platform that allows users to upload PDF documents and instantly receive
 clean, easy-to-read summaries powered by OpenAI ChatGPT and Google Gemini AI.
