@@ -16,7 +16,40 @@
 **Production-Ready · Subscription-Based · AI-Driven SaaS**
 
 </div>
+<<<<<<< HEAD
 
+---
+
+## 🌈 Project Overview
+A high-performance, full-stack AI SaaS platform designed for speed and scalability. This application enables users to upload PDF documents and receive **instant, structured summaries** powered by a hybrid AI engine.
+
+### 🎯 Key Highlights
+* **🤖 Smart AI Fallback:** Dynamic routing between **OpenAI (GPT)** and **Google Gemini** for 100% reliability.
+* **💳 Pro Monetization:** Full **Stripe Integration** with subscription tiers and automated billing portals.
+* **🔒 Secure Infrastructure:** Enterprise-grade file handling via **UploadThing** and type-safe data with **Drizzle ORM**.
+* **⚡ Modern Stack:** Built on **Next.js 14 App Router** for lightning-fast server-side rendering.
+
+---
+=======
+>>>>>>> 86270a2 (v10)
+
+## 🏗️ Tech Stack Breakdown
+
+<<<<<<< HEAD
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend** | **Next.js**, React, Tailwind CSS, Lucide Icons |
+| **AI Engine** | **LangChain**, OpenAI API, Google Gemini AI |
+| **Database** | **PostgreSQL** + **Drizzle ORM** (Type-safe queries) |
+| **Payments** | **Stripe** (Subscriptions & Webhooks) |
+| **Storage** | **UploadThing** (Reliable PDF processing) |
+| **Validation** | **Zod** (Schema-based data integrity) |
+
+---
+
+## 📸 Product Preview
+
+=======
 ---
 
 ## 🌈 Project Overview
@@ -45,6 +78,7 @@ A high-performance, full-stack AI SaaS platform designed for speed and scalabili
 
 ## 📸 Product Preview
 
+>>>>>>> 86270a2 (v10)
 <div align="center">
 
 ### **User Dashboard**
@@ -75,4 +109,8 @@ A high-performance, full-stack AI SaaS platform designed for speed and scalabili
    npm run dev
 
 
+<<<<<<< HEAD
 <p align="center"> Built with ☕ and 💡 for the modern web. </p>
+=======
+   <p align="center"> Built with ☕ and 💡 for the modern web. </p>
+>>>>>>> 86270a2 (v10)
