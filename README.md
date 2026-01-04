@@ -45,6 +45,7 @@ Designed with real-world scalability, reliability, and monetization in mind.
 🎬 Short demo video showing the full flow (upload → summary)
 
 ▶ Watch Demo Video
+<video src="./public/videos/summarizeai_rahulgautam.mp4" width="85%" alt="AI Summary Output" /> </video>
 
 </div>
 👨‍💻 Author
