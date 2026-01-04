@@ -108,9 +108,13 @@ A high-performance, full-stack AI SaaS platform designed for speed and scalabili
    ```bash
    npm run dev
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 <p align="center"> Built with ☕ and 💡 for the modern web. </p>
 =======
    <p align="center"> Built with ☕ and 💡 for the modern web. </p>
 >>>>>>> 86270a2 (v10)
+=======
+<p align="center"> Built with ☕ and 💡 for the modern web. </p>
+>>>>>>> 1afdea8 (v11)
