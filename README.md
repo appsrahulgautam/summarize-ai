@@ -29,8 +29,6 @@ Designed with real-world scalability, reliability, and monetization in mind.
 📸 Product Preview
 <div align="center">
 
-🔥 These screenshots instantly increase client trust on Upwork
-
 <img src="./public/screenshots/Screenshot (29).png" width="85%" alt="Dashboard Preview" /> <br/><br/>
 <img src="./public/screenshots/Screenshot (30).png" width="85%" alt="Upload PDF" /> <br/><br/>
 <img src="./public/screenshots/Screenshot (31).png" width="85%" alt="Subscription status /> <br/><br/>
@@ -45,7 +43,7 @@ Designed with real-world scalability, reliability, and monetization in mind.
 🎬 Short demo video showing the full flow (upload → summary)
 
 ▶ Watch Demo Video
-<video src="./public/videos/summarizeai_rahulgautam.mp4" width="85%" alt="AI Summary Output" /> </video>
+<video src="./public/videos/summarizeai_rahulgautam.mp4" width="85%" alt="AI Summary Output"/>
 
 </div>
 👨‍💻 Author
