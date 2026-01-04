@@ -8,7 +8,7 @@ import generatePDFSummary_Gemini_AI from "./gemini-ai";
 //
 //
 //
-//
+// *
 // * THIS IS THE MAIN FUNCTION HANDLING EVERTYTHING
 // * Whats happening here ->
 // * 1. We have uploaded the picked locally file to UploadThing SDK and have already passed its url to uploadedFileUrl
