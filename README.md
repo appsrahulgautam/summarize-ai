@@ -75,4 +75,4 @@ A high-performance, full-stack AI SaaS platform designed for speed and scalabili
    npm run dev
 
 
-   <p align="center"> Built with ☕ and 💡 for the modern web. </p>
+<p align="center"> Built with ☕ and 💡 for the modern web. </p>
