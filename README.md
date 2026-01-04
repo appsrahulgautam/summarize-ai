@@ -1,7 +1,10 @@
 <div align="center">
-✨ AI-Powered PDF Summarizer SaaS
-Transform Long PDFs into Clear, Actionable Summaries using AI
-<br/>
+
+# ✨ AI-Powered PDF Summarizer SaaS
+### **Transform Long PDFs into Clear, Actionable Insights with AI**
+
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Online-success?style=for-the-badge)](https://ai-to-summarize.vercel.app/)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel)](https://ai-to-summarize.vercel.app/)
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -9,75 +12,67 @@ Transform Long PDFs into Clear, Actionable Summaries using AI
 ![OpenAI](https://img.shields.io/badge/OpenAI-111111?style=for-the-badge&logo=openai&logoColor=white)
 ![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Online-success?style=for-the-badge)](https://ai-to-summarize.vercel.app/)
-[![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel)](https://ai-to-summarize.vercel.app/)
 
-<br/>
-
-🚀 Production-Ready · Subscription-Based · AI-Driven SaaS
+**Production-Ready · Subscription-Based · AI-Driven SaaS**
 
 </div>
-🌈 Project Overview
-<div align="start">
 
-A full-stack AI SaaS platform that allows users to upload PDF documents and instantly receive
-clean, easy-to-read summaries powered by OpenAI ChatGPT and Google Gemini AI.
+---
 
-Designed with real-world scalability, reliability, and monetization in mind.
+## 🌈 Project Overview
+A high-performance, full-stack AI SaaS platform designed for speed and scalability. This application enables users to upload PDF documents and receive **instant, structured summaries** powered by a hybrid AI engine.
 
-This repository showcases:
+### 🎯 Key Highlights
+* **🤖 Smart AI Fallback:** Dynamic routing between **OpenAI (GPT)** and **Google Gemini** for 100% reliability.
+* **💳 Pro Monetization:** Full **Stripe Integration** with subscription tiers and automated billing portals.
+* **🔒 Secure Infrastructure:** Enterprise-grade file handling via **UploadThing** and type-safe data with **Drizzle ORM**.
+* **⚡ Modern Stack:** Built on **Next.js 14 App Router** for lightning-fast server-side rendering.
 
-Modern Next.js App Router architecture
-AI pipeline orchestration with LangChain
-Secure file handling with UploadThing
-Subscription billing using Stripe
-Type-safe backend with PostgreSQL + Drizzle ORM
-Enterprise-grade validation with Zod
+---
 
+## 🏗️ Tech Stack Breakdown
 
-🎯 Key Highlights (Why Clients Love This)
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend** | **Next.js**, React, Tailwind CSS, Lucide Icons |
+| **AI Engine** | **LangChain**, OpenAI API, Google Gemini AI |
+| **Database** | **PostgreSQL** + **Drizzle ORM** (Type-safe queries) |
+| **Payments** | **Stripe** (Subscriptions & Webhooks) |
+| **Storage** | **UploadThing** (Reliable PDF processing) |
+| **Validation** | **Zod** (Schema-based data integrity) |
 
-✅ AI Provider Fallback System (OpenAI → Gemini)
-✅ Subscription-based SaaS architecture
-✅ Production-ready authentication & billing
-✅ Scalable, modular codebase
-✅ Clean UI with Tailwind CSS
-✅ Type-safe from frontend to database
+---
 
+## 📸 Product Preview
 
-🏗️ Tech Stack
-Frontend
-
-⚡ Next.js (App Router)
-⚛️ React.js
-🎨 Tailwind CSS
-🟦 TypeScript
-
-Backend & Infrastructure
-🧠 LangChain SDK
-📦 UploadThing SDK
-🗄️ PostgreSQL
-🔄 Drizzle ORM
-🛡️ Zod Validation
-
-AI Providers
-🤖 OpenAI (ChatGPT)
-🌐 Google Gemini API
-
-Payments & Subscriptions
-💳 Stripe Payments
-🔁 Stripe Subscriptions
-🧾 Webhook-driven subscription state management
-
-
-</div>
-📸 Product Preview
 <div align="center">
 
-<img src="./public/screenshots/Screenshot (29).png" width="85%" alt="Dashboard Preview" /> <br/><br/>
-<img src="./public/screenshots/Screenshot (30).png" width="85%" alt="Upload PDF" /> <br/><br/>
-<img src="./public/screenshots/Screenshot (31).png" width="85%" alt="Subscription status" /> <br/><br/>
-<img src="./public/screenshots/Screenshot (32).png"  width="85%" alt="Pricing" /> <br/><br/>
-<img src="./public/screenshots/Screenshot (34).png" width="85%" alt="Stripe payment" /> <br/><br/>
-<img src="./public/screenshots/Screenshot (33).png" width="85%" alt="AI Summary Output" /> </div>
+### **User Dashboard**
+<img src="./public/screenshots/Screenshot (29).png" width="90%" alt="Dashboard Preview" /> 
 
+### **AI Summarization Logic**
+<img src="./public/screenshots/Screenshot (33).png" width="90%" alt="AI Summary Output" /> 
+
+### **Subscription & Payments**
+<img src="./public/screenshots/Screenshot (32).png"  width="45%" alt="Pricing" /> <img src="./public/screenshots/Screenshot (34).png" width="45%" alt="Stripe payment" />
+
+</div>
+
+---
+
+## 🛠️ Quick Start
+
+1. **Clone & Install**
+   ```bash
+   git clone [https://github.com/appsrahulgautam/summarize-ai.git](https://github.com/appsrahulgautam/summarize-ai.git)
+   cd repo-name
+   npm install
+
+2. Create a .env.local file and add your API keys for OpenAI, Gemini, Stripe, and your Database URL.
+
+3. Run Locally
+   ```bash
+   npm run dev
+
+
+   <p align="center"> Built with ☕ and 💡 for the modern web. </p>
