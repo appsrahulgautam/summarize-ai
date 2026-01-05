@@ -33,7 +33,6 @@ A high-performance, full-stack AI SaaS platform designed for speed and scalabili
 
 ---
 
-
 ## 🏗️ Tech Stack Breakdown
 
 | Layer          | Technology                                           |
@@ -67,9 +66,12 @@ A high-performance, full-stack AI SaaS platform designed for speed and scalabili
 
 <img src="./public/screenshots/Screenshot (33).png" width="90%" alt="AI Summary Output" />
 
-### **Subscription & Payments**
+### **Subscription Management **
 
-<img src="./public/screenshots/Screenshot (32).png"  width="45%" alt="Pricing" /> 
+<img src="./public/screenshots/Screenshot (32).png"  width="45%" alt="Pricing" />
+
+### ** Stripe Payments **
+
 <img src="./public/screenshots/Screenshot (34).png" width="45%" alt="Stripe payment" />
 
 </div>
