@@ -68,11 +68,11 @@ A high-performance, full-stack AI SaaS platform designed for speed and scalabili
 
 ### **Subscription Management **
 
-<img src="./public/screenshots/Screenshot (32).png"  width="45%" alt="Pricing" />
+<img src="./public/screenshots/Screenshot (32).png"  width="90%" alt="Pricing" />
 
 ### ** Stripe Payments **
 
-<img src="./public/screenshots/Screenshot (34).png" width="45%" alt="Stripe payment" />
+<img src="./public/screenshots/Screenshot (34).png" width="90%" alt="Stripe payment" />
 
 </div>
 
